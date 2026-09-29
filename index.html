@@ -3,19 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MY ELECTRO — прайс и сметы</title>
-<meta name="theme-color" content="#0d0f10">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="manifest.json">
+<title>Электрик Мурад — прайс и сметы</title>
 <style>
 :root{--bg:#0d0f10;--panel:#171a1d;--panel2:#202429;--text:#f5f5f5;--muted:#aeb4ba;--accent:#f4c400;--line:#343a40;--blue:#2478e8;--green:#27c45a;--danger:#df4d4d}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
 .app{display:flex;min-height:100vh}.side{width:245px;background:#151719;border-right:1px solid var(--line);padding:18px 12px;position:fixed;inset:0 auto 0 0;z-index:5}
 .logo{font-weight:900;font-size:21px;padding:8px 12px 22px}.bolt{color:var(--accent);font-size:28px}
 .nav button{width:100%;background:none;border:0;color:#ddd;text-align:left;padding:12px 14px;border-radius:9px;font-size:15px;cursor:pointer;margin:2px 0}.nav button:hover,.nav button.active{background:#2a2e32;color:#fff}.nav button.active{border-left:4px solid var(--accent)}
-.nav-icon{display:inline-block;margin-right:7px}.nav-label{vertical-align:middle}
 .main{margin-left:245px;width:calc(100% - 245px);padding:24px;max-width:1500px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.top h1{margin:0;font-size:28px}.badge{background:#2b2f33;padding:8px 12px;border-radius:20px;color:#ddd}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.stat{font-size:29px;font-weight:900;margin-top:8px}.muted{color:var(--muted);font-size:13px}
 .hero{background:linear-gradient(135deg,#1a1d20,#2a2f34);border-radius:18px;padding:28px;margin-bottom:18px;border:1px solid #383e44}.hero h2{font-size:35px;margin:0 0 8px}.accent{color:var(--accent)}
@@ -24,75 +18,17 @@
 .table{width:100%;border-collapse:collapse;margin-top:14px}.table th,.table td{padding:11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}.table th{color:#aaa;font-size:12px}
 .catgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.cat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer}.cat:hover{border-color:#777}.cat b{display:block;margin-bottom:7px}
 .total{font-size:24px;font-weight:900;text-align:right;margin-top:15px}.empty{padding:35px;text-align:center;color:#999;background:var(--panel);border-radius:12px}
-.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.section-title{font-size:20px;font-weight:900}.price-item{display:grid;grid-template-columns:minmax(0,1fr) 65px 100px 150px auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.price-item:last-child{border-bottom:0}
-.qty-control{display:flex;align-items:center;gap:5px}.qty-btn{width:28px;height:28px;min-width:28px;padding:0;border:1px solid #4b535b;background:#292e33;color:#fff;border-radius:6px;font-size:16px;line-height:26px;font-weight:800;cursor:pointer;touch-action:manipulation;display:inline-flex;align-items:center;justify-content:center}.qty-number{width:38px!important;min-width:38px;text-align:center;padding:5px 2px!important;font-weight:800;height:28px!important;border-radius:6px}.editor-section{margin-bottom:14px}.editor-service{display:grid;grid-template-columns:1fr 90px 120px auto;gap:8px;align-items:center;margin-top:8px}.hint{padding:12px;border:1px dashed #4b535b;border-radius:10px;color:var(--muted);margin-top:12px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.section-title{font-size:20px;font-weight:900}.price-item{display:grid;grid-template-columns:1fr 95px 120px auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.price-item:last-child{border-bottom:0}
+.editor-section{margin-bottom:14px}.editor-service{display:grid;grid-template-columns:1fr 90px 120px auto;gap:8px;align-items:center;margin-top:8px}.hint{padding:12px;border:1px dashed #4b535b;border-radius:10px;color:var(--muted);margin-top:12px}
 @media(max-width:900px){.side{width:72px;padding:12px 8px}.logo{font-size:0;text-align:center}.logo .bolt{font-size:28px}.nav button{font-size:0;text-align:center;padding:13px}.nav button:first-letter{font-size:18px}.main{margin-left:72px;width:calc(100% - 72px);padding:15px}.grid{grid-template-columns:repeat(2,1fr)}.catgrid{grid-template-columns:1fr 1fr}.hero h2{font-size:27px}}
-@media(max-width:600px){
-.grid,.catgrid,.row{grid-template-columns:1fr}.top h1{font-size:22px}.main{padding:10px 10px 82px}.badge{display:none}
-.side{width:100%;height:64px;bottom:0;top:auto;left:0;right:0;padding:6px 4px;border-right:0;border-top:1px solid var(--line);display:flex;align-items:center;z-index:20}.logo{display:none}.nav{display:grid!important;grid-template-columns:repeat(4,1fr);width:100%;gap:2px}.nav button{font-size:10px!important;text-align:center!important;padding:7px 2px!important;margin:0!important;border-left:0!important;border-radius:8px;line-height:1.1}.nav button:first-letter{font-size:20px}.nav button.active{border-left:0;border-top:3px solid var(--accent);padding-top:4px!important}
-.hero{padding:20px}.hero h2{font-size:28px}.card{padding:14px}.cat{padding:16px;min-height:54px}.cat b{font-size:15px}.actions .search{max-width:none!important}
-.price-item{grid-template-columns:1fr auto;gap:8px;padding:15px 0}.price-item>div:nth-child(2){font-size:12px;color:var(--muted)}.price-item>div:nth-child(3){font-weight:800}.price-item>div:nth-child(4){grid-column:1/-1}.price-item .item-actions{grid-column:auto;grid-row:1 / span 2;align-self:center}.price-item .qty-control{justify-content:flex-start}.qty-btn{width:40px;height:40px}.qty-number{width:52px!important;height:40px}
-.editor-service{grid-template-columns:1fr 80px 105px}.editor-service .item-actions{grid-column:1/-1}.table{font-size:13px;min-width:760px}.table th:nth-child(1),.table td:nth-child(1){display:none}.table input[type=number]{max-width:80px}.estimate-qty{display:inline-flex;align-items:center;gap:5px}.print-qty{display:none}
-}
-
-/* MY ELECTRO — mobile app polish */
-@media(max-width:600px){
-  body{font-size:14px;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
-  .app{min-height:100dvh}
-  .main{padding:10px 10px 88px;max-width:none;width:100%;margin:0}
-  .top{position:sticky;top:0;z-index:10;margin:-10px -10px 12px;padding:12px 14px;background:rgba(13,15,16,.96);border-bottom:1px solid #292e33;backdrop-filter:blur(10px)}
-  .top h1{font-size:20px;font-weight:900}
-  .card{border-radius:16px;padding:14px;box-shadow:0 5px 18px rgba(0,0,0,.16)}
-  .hero{border-radius:18px;padding:22px 18px;margin-bottom:12px}
-  .hero h2{font-size:26px;line-height:1.15}
-  .hero .btn{width:100%;margin-top:8px;min-height:46px}
-  .grid{gap:10px}
-  .grid .card{min-height:92px}
-  .stat{font-size:26px}
-  .actions{gap:8px}
-  .actions .btn{min-height:42px}
-  .search,input,select,textarea{font-size:16px;min-height:44px}
-  .catgrid{gap:9px;margin-top:10px}
-  .cat{min-height:76px;padding:14px;border-radius:14px;display:flex;flex-direction:column;justify-content:center}
-  .section-head{align-items:flex-start}
-  .section-title{font-size:18px}
-  .price-item{padding:13px 0;grid-template-columns:minmax(0,1fr) auto;gap:5px 8px}
-  .price-item>div:first-child b{font-size:14px;line-height:1.3;display:block}
-  .price-item>div:nth-child(3){font-size:14px}
-  .price-item .item-actions{grid-column:2;grid-row:1 / span 2}
-  .qty-control{justify-content:flex-end}
-  .qty-btn{width:30px;height:30px;min-width:30px;border-radius:8px;font-size:16px}
-  .qty-number{width:38px!important;min-width:38px;height:30px!important;font-size:14px}
-  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px}
-  .estimate-table{min-width:720px}
-  .estimate-table th,.estimate-table td{padding:8px}
-  .estimate-total{font-size:21px}
-  .auth-screen{min-height:calc(100dvh - 70px);padding:12px}
-  .auth-card{padding:24px 18px;border-radius:20px}
-  .auth-btn{min-height:48px}
-  .side{height:76px;padding:5px 6px calc(5px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.28);background:rgba(21,23,25,.98);backdrop-filter:blur(14px)}
-  .nav{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:4px;width:100%;height:66px}
-  .nav button{font-size:9px!important;min-width:0;width:100%;height:64px;padding:6px 2px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;white-space:normal;overflow:hidden;color:#9da3a9;background:transparent;border:1px solid transparent!important;border-radius:12px;line-height:1.05;transition:.15s}
-  .nav .nav-icon{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;font-size:18px;line-height:1;background:#252a2f}
-  .nav .nav-label{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
-  .nav button.active{border:1px solid #4a4f54!important;background:#292e33;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-  .nav button.active .nav-icon{background:var(--accent);color:#111;box-shadow:0 2px 8px rgba(244,196,0,.22)}
-  .nav button:active{transform:scale(.96)}
-}
-
-.archive-list{margin-top:14px}.archive-row{display:grid;grid-template-columns:1.1fr 1fr 1.3fr .8fr auto;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.archive-row:last-child{border-bottom:0}.archive-actions{display:flex;gap:6px;flex-wrap:wrap}.archive-small{font-size:12px;color:var(--muted);margin-top:3px}@media(max-width:700px){.archive-row{grid-template-columns:1fr 1fr}.archive-actions{grid-column:1/-1}}
-@media print{html,body{background:#fff!important;color:#000!important;margin:0!important;padding:0!important}.app{display:block!important;min-height:0!important;background:#fff!important}.side,.top,.no-print{display:none!important}.main{margin:0!important;width:100%!important;max-width:none!important;padding:0!important;background:#fff!important}.content,.card,.print-estimate{background:#fff!important;color:#000!important;box-shadow:none!important;border:0!important}.card{break-inside:avoid}.muted{color:#555!important}.print-only{display:block!important}.estimate-print-head{text-align:center;margin-bottom:18px}.estimate-print-head h2{margin:0 0 5px}.estimate-print-head p{margin:0}.estimate-info{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;padding:10px;border:1px solid #ccc}.estimate-table{width:100%;border-collapse:collapse;background:#fff;color:#000}.estimate-table th,.estimate-table td{border:1px solid #999;padding:8px;text-align:left}.estimate-table th{font-weight:700;background:#f2f2f2!important;color:#000!important}.estimate-table td:nth-child(1),.estimate-table td:nth-child(4),.estimate-table td:nth-child(5){text-align:center}.estimate-total{margin-top:14px;text-align:right;font-size:20px;font-weight:800;color:#000!important}.table-wrap{overflow:visible}.print-only{display:none}.print-qty{display:inline}.estimate-qty{display:none}.print-discount{display:block!important;margin-top:6px;text-align:right}.print-final{font-size:22px;font-weight:900;text-align:right;margin-top:5px}}
-@media(max-width:600px){.qty-control{gap:4px}.qty-btn{width:26px;height:26px;min-width:26px;font-size:15px;line-height:24px}.qty-number{width:36px!important;min-width:36px;height:26px!important;padding:3px 1px!important;font-size:14px}}
-
-.estimate-delete{width:28px;height:28px;border:1px solid #ddd;border-radius:7px;background:#fff;color:#d33;font-size:18px;line-height:1;cursor:pointer;padding:0}.estimate-delete:hover{background:#fff0f0}
-
-.auth-screen{min-height:calc(100vh - 100px);display:flex;align-items:center;justify-content:center;padding:20px}.auth-card{width:min(420px,100%);background:#17191b;border:1px solid #343a40;border-radius:18px;padding:28px;box-sizing:border-box;text-align:center}.auth-card h2{margin:0 0 10px;font-size:28px}.auth-card .muted{margin-bottom:22px}.auth-input{width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1px solid #3d4247;background:#101214;color:#fff;font-size:16px;outline:none;margin-bottom:12px}.auth-input:focus{border-color:#f4c400}.auth-btn{width:100%;padding:13px;border:0;border-radius:10px;background:#f4c400;color:#111;font-weight:800;font-size:16px;cursor:pointer}.welcome-name{color:#f4c400}.account-bar{display:flex;align-items:center;gap:10px}.logout-btn{border:1px solid #444;background:transparent;color:#aaa;border-radius:8px;padding:7px 10px;cursor:pointer}.logout-btn:hover{color:#fff}
+@media(max-width:600px){.grid,.catgrid,.row{grid-template-columns:1fr}.top h1{font-size:22px}.main{padding:10px}.badge{display:none}.price-item{grid-template-columns:1fr 78px 95px}.price-item .item-actions{grid-column:1/-1}.editor-service{grid-template-columns:1fr 80px 105px}.editor-service .item-actions{grid-column:1/-1}.table{font-size:13px}.table th:nth-child(1),.table td:nth-child(1){display:none}}
+@media print{body{background:#fff;color:#000}.side,.top,.no-print{display:none!important}.main{margin:0;width:100%;padding:0}.card{break-inside:avoid;background:#fff;color:#000;border-color:#ddd}.muted{color:#555}.print-only{display:block!important}.print-title{display:block!important}.print-table{color:#000!important}.print-table th,.print-table td{border-color:#ccc!important}.print-meta{color:#000!important}} .print-only,.print-title{display:none}
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="side">
-  <div class="logo"><span class="bolt">⚡</span> MY ELECTRO</div>
+  <div class="logo"><span class="bolt">⚡</span> ЭЛЕКТРИК МУРАД</div>
   <nav class="nav" id="nav"></nav>
 </aside>
 <main class="main">
@@ -103,7 +39,7 @@
 <script>
 const KEY="murad_price_v2";
 const estimateKey="murad_estimate";
-const accountKey="my_electro_account";
+const ordersKey="murad_orders_v1";
 const initialPrice=[
   {name:"Электромонтажные работы",items:[["Установка розетки","шт",350],["Установка выключателя","шт",300],["Монтаж точки освещения","шт",500],["Монтаж распределительной коробки","шт",700]]},
   {name:"Кабельная продукция",items:[["ВВГ 3×1,5","м",65],["ВВГ 3×2,5","м",95],["ВВГ 3×4","м",145],["ВВГ 3×6","м",210],["ПВС 3×1,5","м",60],["ПВС 3×2,5","м",90],["NYM 3×2,5","м",120],["NYM 3×4","м",170],["ШВВП 2×0,75","м",40],["КГ 3×1,5","м",85]]},
@@ -125,40 +61,19 @@ const initialPrice=[
   {name:"Муфты (бронь сшитый полиэтилен)",items:[["Муфта По низкой стороне до 95 мм² (бронь +25%)","шт",5000],["Муфта По низкой стороне до 300 мм² (бронь +25%)","шт",9000],["Муфта По высокой стороне","шт",12000],["Муфта Переключение Анцапы","шт",6000]]}
 ];
 let price=loadPrice();
-let account=JSON.parse(localStorage.getItem(accountKey)||"null");
-function ensureAccount(){
-  if(!account)return;
-  if(!account.id){
-    account.id=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():("acc_"+Date.now()+"_"+Math.random().toString(36).slice(2));
-    const old=localStorage.getItem(estimateKey);
-    if(old && !localStorage.getItem("my_electro_estimate_"+account.id)) localStorage.setItem("my_electro_estimate_"+account.id,old);
-    localStorage.removeItem(estimateKey);
-    saveAccount();
-  }
-}
-ensureAccount();
-function userEstimateKey(){return account?"my_electro_estimate_"+account.id:estimateKey}
-function userDataKey(){return account?"my_electro_data_"+account.id:"my_electro_data_guest"}
-function loadEstimate(){try{const saved=JSON.parse(localStorage.getItem(userEstimateKey())||"[]");return Array.isArray(saved)?saved:[]}catch(e){return []}}
-let estimate=loadEstimate();
+let estimate=JSON.parse(localStorage.getItem(estimateKey)||"[]");
+let ordersData=JSON.parse(localStorage.getItem(ordersKey)||"[]");
 let current="Главная", currentCat=null;
 
 const navItems=[["🏠","Главная"],["💰","Прайс"],["🧮","Калькулятор"],["📋","Сметы и заказы"],["🗂️","Архив заказов"],["✅","Чек-лист"],["🛠️","Управление прайсом"]];
-document.getElementById("nav").innerHTML=navItems.map(x=>`<button onclick="go('${x[1]}')" id="n-${x[1]}"><span class="nav-icon">${x[0]}</span><span class="nav-label">${x[1]}</span></button>`).join("");
+document.getElementById("nav").innerHTML=navItems.map(x=>`<button onclick="go('${x[1]}')" id="n-${x[1]}">${x[0]} &nbsp; ${x[1]}</button>`).join("");
 
-function saveAccount(){localStorage.setItem(accountKey,JSON.stringify(account));}
-function showAuth(c){
- c.innerHTML=`<div class="auth-screen"><div class="auth-card"><div style="font-size:42px">⚡</div><h2>MY ELECTRO</h2><p class="muted">Введите своё имя, чтобы создать аккаунт и начать работу.</p><input id="accountName" class="auth-input" maxlength="40" placeholder="Ваше имя" autocomplete="name"><button class="auth-btn" onclick="createAccount()">Создать аккаунт</button></div></div>`;
- const input=document.getElementById("accountName"); if(input)input.addEventListener("keydown",e=>{if(e.key==='Enter')createAccount()});
-}
-function createAccount(){const el=document.getElementById("accountName");const name=(el?.value||"").trim();if(!name){alert("Введите имя");return}account={name:name,id:(window.crypto&&crypto.randomUUID)?crypto.randomUUID():("acc_"+Date.now()+"_"+Math.random().toString(36).slice(2))};saveAccount();estimate=loadEstimate();go("Главная");}
-function logout(){if(!confirm("Выйти из аккаунта?"))return;saveEstimate();account=null;localStorage.removeItem(accountKey);estimate=[];render();}
 function loadPrice(){
   try{const saved=JSON.parse(localStorage.getItem(KEY)); if(Array.isArray(saved)&&saved.length)return saved}catch(e){}
   const copy=JSON.parse(JSON.stringify(initialPrice)); localStorage.setItem(KEY,JSON.stringify(copy)); return copy;
 }
 function savePrice(){localStorage.setItem(KEY,JSON.stringify(price))}
-function saveEstimate(){localStorage.setItem(userEstimateKey(),JSON.stringify(estimate))}
+function saveEstimate(){localStorage.setItem(estimateKey,JSON.stringify(estimate))}
 function go(page){current=page;currentCat=null;document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));document.getElementById("n-"+page).classList.add("active");render()}
 function render(){document.getElementById("title").textContent=current;const c=document.getElementById("content");
  if(current==="Главная")return home(c); if(current==="Прайс")return pricePage(c); if(current==="Калькулятор")return calc(c);
@@ -166,9 +81,8 @@ function render(){document.getElementById("title").textContent=current;const c=d
  if(current==="Чек-лист")return checklist(c); if(current==="Управление прайсом")return editor(c);
 }
 function home(c){
- if(!account){return showAuth(c)}
  const count=price.reduce((s,x)=>s+x.items.length,0);
- c.innerHTML=`<div class="hero"><h2>Добро пожаловать,<br><span class="accent welcome-name">${esc(account.name)}!</span></h2><p class="muted">Прайс, калькулятор и сметы в одном месте.</p><button class="btn" onclick="go('Прайс')">Открыть прайс →</button><div style="margin-top:18px"><button class="logout-btn" onclick="logout()">Выйти из аккаунта</button></div></div>
+ c.innerHTML=`<div class="hero"><h2>Добро пожаловать,<br><span class="accent">ЭЛЕКТРИК МУРАД!</span></h2><p class="muted">Прайс, калькулятор и сметы в одном месте.</p><button class="btn" onclick="go('Прайс')">Открыть прайс →</button></div>
  <div class="grid"><div class="card"><div class="muted">Разделов</div><div class="stat">${price.length}</div></div><div class="card"><div class="muted">Позиций прайса</div><div class="stat">${count}</div></div><div class="card"><div class="muted">Позиций в смете</div><div class="stat">${estimate.length}</div></div><div class="card"><div class="muted">Сохранение</div><div class="stat">✓</div></div></div>
  <div class="card" style="margin-top:15px"><h3>Новый редактор прайса</h3><p class="muted">Можно самостоятельно добавлять разделы и услуги, менять цены и единицы измерения. Изменения сохраняются в браузере.</p><button class="btn blue" onclick="go('Управление прайсом')">Управлять прайсом</button></div>`;
 }
@@ -183,77 +97,35 @@ function items(c){
  const cat=price[currentCat];
  c.innerHTML=`<div class="actions no-print"><button class="btn secondary" onclick="currentCat=null;render()">← Все разделы</button><input class="search" style="max-width:360px" placeholder="Поиск по услугам..." oninput="filterItems(this.value)"><button class="btn blue" onclick="go('Управление прайсом')">Редактировать</button></div>
  <div class="card" style="margin-top:14px"><div class="section-head"><div class="section-title">${currentCat+1}. ${esc(cat.name)}</div><span class="muted">${cat.items.length} позиций</span></div>
- <div id="items">${cat.items.length?cat.items.map((x,i)=>{const selected=estimate.find(e=>e.name===x[0]&&e.unit===x[1]&&Number(e.price)===Number(x[2]));const q=selected?Number(selected.qty)||0:0;return `<div class="price-item" data-name="${esc(x[0]).toLowerCase()}"><div><b>${esc(x[0])}</b></div><div>${esc(x[1])}</div><div>${money(x[2])} ₽</div><div class="qty-control"><button class="qty-btn" onclick="changePriceQty(${currentCat},${i},-1)">−</button><input class="qty-number" id="pq-${currentCat}-${i}" type="number" min="0" value="${q}" inputmode="numeric" onchange="setPriceQty(${currentCat},${i},this.value)"><button class="qty-btn" onclick="changePriceQty(${currentCat},${i},1)">+</button></div></div>`}).join(""):`<div class="empty">В этом разделе пока нет позиций.</div>`}</div></div>`;
+ <div id="items">${cat.items.length?cat.items.map((x,i)=>`<div class="price-item" data-name="${esc(x[0]).toLowerCase()}"><div><b>${esc(x[0])}</b></div><div>${esc(x[1])}</div><div>${money(x[2])} ₽</div><div class="item-actions"><button class="btn" onclick="addItem(${currentCat},${i})">Добавить</button></div></div>`).join(""):`<div class="empty">В этом разделе пока нет позиций.</div>`}</div></div>`;
 }
 function filterItems(v){document.querySelectorAll("#items .price-item").forEach(e=>e.style.display=e.dataset.name.includes(v.toLowerCase())?"grid":"none")}
-function changePriceQty(ci,ii,delta){const el=document.getElementById(`pq-${ci}-${ii}`);if(!el)return;const q=Math.max(0,(Number(el.value)||0)+delta);el.value=q;setPriceQty(ci,ii,q)}
-function setPriceQty(ci,ii,value){const x=price[ci].items[ii];const q=Math.max(0,Number(value)||0);const existing=estimate.find(e=>e.name===x[0]&&e.unit===x[1]&&Number(e.price)===Number(x[2]));if(q===0){if(existing)estimate=estimate.filter(e=>e!==existing);}else if(existing){existing.qty=q;}else{estimate.push({section:price[ci].name,name:x[0],unit:x[1],price:Number(x[2]),qty:q});}if(existing)existing.section=price[ci].name;saveEstimate();render();}
-function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:#27c45a;color:#fff;padding:12px 16px;border-radius:10px;font-weight:700;z-index:50;box-shadow:0 8px 25px #0008';document.body.appendChild(t)}t.textContent=msg;t.style.display='block';clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.style.display='none',1600)}
+function addItem(ci,ii){const x=price[ci].items[ii];const found=estimate.find(e=>e.name===x[0]&&e.unit===x[1]&&Number(e.price)===Number(x[2]));if(found)found.qty=Number(found.qty||0)+1;else estimate.push({name:x[0],unit:x[1],price:Number(x[2]),qty:1});saveEstimate();render();showToast(`Добавлено: ${x[0]} × ${found?found.qty:1}`)}
+function showToast(msg){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.style.cssText="position:fixed;right:18px;bottom:18px;background:#f4c400;color:#111;padding:12px 16px;border-radius:10px;font-weight:800;z-index:99;box-shadow:0 5px 20px #0008";document.body.appendChild(t)}t.textContent=msg;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",1800)}
 function calc(c){
  const total=estimate.reduce((s,x)=>s+x.qty*x.price,0);
  c.innerHTML=`<div class="row"><div class="card"><h3>Добавление позиции</h3><p class="muted">Выбирай услуги в разделе «Прайс».</p><button class="btn" onclick="go('Прайс')">Открыть прайс</button></div><div class="card"><h3>Итого</h3><div class="stat">${money(total)} ₽</div></div></div>
- <div class="card" style="margin-top:14px;overflow-x:auto"><table class="table"><thead><tr><th>№</th><th>Раздел</th><th>Позиция</th><th>Ед.</th><th>Кол-во</th><th>Цена за 1</th><th>Сумма</th><th></th></tr></thead><tbody>${estimate.length?estimate.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.section||"")}</td><td><b>${esc(x.name)}</b></td><td>${esc(x.unit)}</td><td><div class="estimate-qty"><button class="qty-btn no-print" onclick="changeEstimateQty(${i},-1)">−</button><input class="qty-number" type="number" min="1" value="${x.qty}" onchange="qty(${i},this.value)"><button class="qty-btn no-print" onclick="changeEstimateQty(${i},1)">+</button></div></td><td>${money(x.price)} ₽</td><td><b>${money(x.qty*x.price)} ₽</b></td><td><button class="btn danger" onclick="del(${i})">Удалить</button></td></tr>`).join(""):`<tr><td colspan="8" class="empty">Расчёт пуст. Открой «Прайс» и добавь позиции.</td></tr>`}</tbody></table>
- <div class="actions no-print" style="margin-top:15px"><button class="btn secondary" onclick="estimate=[];saveEstimate();render()">Очистить</button><button class="btn" onclick="window.print()">Печать</button></div></div>`;
+ <div class="card" style="margin-top:14px"><table class="table"><thead><tr><th>№</th><th>Наименование</th><th>Ед.</th><th>Количество</th><th>Цена за 1</th><th>Сумма</th><th></th></tr></thead><tbody>${estimate.length?estimate.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.name)}</td><td>${esc(x.unit)}</td><td><div style="display:flex;gap:5px;align-items:center"><button class="btn secondary" style="padding:6px 10px" onclick="qty(${i},${Number(x.qty)-1})">−</button><input style="width:65px;text-align:center" type="number" min="1" value="${x.qty}" onchange="qty(${i},this.value)"><button class="btn" style="padding:6px 10px" onclick="qty(${i},${Number(x.qty)+1})">+</button></div></td><td>${money(x.price)} ₽</td><td>${money(x.qty*x.price)} ₽</td><td><button class="btn danger" onclick="del(${i})">×</button></td></tr>`).join(""):`<tr><td colspan="7" class="empty">Расчёт пуст. Открой «Прайс» и добавь позиции.</td></tr>`}</tbody></table>
+ <div class="actions no-print" style="margin-top:15px"><button class="btn secondary" onclick="estimate=[];saveEstimate();render()">Очистить</button><button class="btn" onclick="go('Сметы и заказы')">Перейти к заказу</button></div></div>`;
 }
 function qty(i,v){estimate[i].qty=Math.max(1,Number(v)||1);saveEstimate();render()}
-function changeEstimateQty(i,delta){if(!estimate[i])return; estimate[i].qty=Math.max(1,(Number(estimate[i].qty)||1)+delta); saveEstimate(); render()}
-function setEstimateQtyFromOrders(i,v){if(!estimate[i])return;const q=Math.max(1,parseInt(v,10)||1);estimate[i].qty=q;saveEstimate();render()}
-function changeEstimateQtyFromOrders(i,delta){if(!estimate[i])return;estimate[i].qty=Math.max(1,(parseInt(estimate[i].qty,10)||1)+delta);saveEstimate();render()}
 function del(i){estimate.splice(i,1);saveEstimate();render()}
-function saveOrderForm(){
-  if(!account)return;
-  const data={client:document.getElementById("client")?.value||"",phone:document.getElementById("phone")?.value||"",address:document.getElementById("address")?.value||"",date:document.getElementById("date")?.value||"",comment:document.getElementById("comment")?.value||""};
-  localStorage.setItem(userDataKey(),JSON.stringify(data));
-}
-function restoreOrderForm(){
-  if(!account)return;
-  try{
-    const d=JSON.parse(localStorage.getItem(userDataKey())||"{}");
-    ["client","phone","address","date","comment","discount"].forEach(id=>{const el=document.getElementById(id);if(el&&d[id]!=null)el.value=d[id]});
-  }catch(e){}
-}
 function orders(c){
- const subtotal=estimate.reduce((s,x)=>s+x.qty*x.price,0);
- const savedDate=(()=>{try{const d=JSON.parse(localStorage.getItem(userDataKey())||"{}");return d.date||""}catch(e){return ""}})();
- const rows=estimate.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.section||"")}</td><td><b>${esc(x.name)}</b></td><td>${esc(x.unit)}</td><td><span class="print-qty">${x.qty}</span><span class="no-print estimate-qty"><button class="qty-btn" type="button" onclick="changeEstimateQtyFromOrders(${i},-1)">−</button><input class="qty-number" type="number" min="1" value="${x.qty}" onchange="setEstimateQtyFromOrders(${i},this.value)"><button class="qty-btn" type="button" onclick="changeEstimateQtyFromOrders(${i},1)">+</button></span></td><td>${money(x.price)} ₽</td><td><b>${money(x.qty*x.price)} ₽</b></td><td class="no-print"><button class="estimate-delete" type="button" title="Удалить позицию" onclick="del(${i})">×</button></td></tr>`).join("");
- c.innerHTML=`<div class="card print-estimate">
- <div class="estimate-print-head"><h2>СМЕТА НА ЭЛЕКТРОМОНТАЖНЫЕ РАБОТЫ</h2><p>Электрик Мурад</p></div>
- <div class="row no-print"><div class="card"><h3>Информация о заказе</h3><input id="client" placeholder="ФИО заказчика"><br><br><input id="phone" placeholder="Телефон"><br><br><input id="address" placeholder="Адрес"><br><br><input id="date" type="date"><br><br><input id="discount" type="number" min="0" max="100" step="0.1" placeholder="Скидка, %"><br><br><textarea id="comment" placeholder="Комментарий" rows="4"></textarea></div></div>
- <div class="estimate-info print-only"><div><b>Заказчик:</b> <span id="print-client">—</span></div><div><b>Телефон:</b> <span id="print-phone">—</span></div><div><b>Адрес:</b> <span id="print-address">—</span></div><div><b>Дата:</b> <span id="print-date">—</span></div></div>
- <h3>Выбранные работы и материалы</h3>
- <div class="table-wrap"><table class="table estimate-table"><thead><tr><th>№</th><th>Раздел</th><th>Позиция</th><th>Ед.</th><th>Количество</th><th>Цена за 1</th><th>Сумма</th><th class="no-print">Действие</th></tr></thead><tbody>${rows||`<tr><td colspan="8" class="empty">Смета пока пустая. Откройте «Прайс» и выберите работы.</td></tr>`}</tbody>${estimate.length?`<tfoot><tr><td colspan="6" style="text-align:right"><b>ПОДЫТОГ:</b></td><td><b>${money(subtotal)} ₽</b></td></tr></tfoot>`:""}</table></div>
- <div class="total estimate-total">Подыто́г: ${money(subtotal)} ₽</div>
- <div class="discount-line">Скидка: <input id="discount-inline" class="no-print" type="number" min="0" max="100" step="0.1" value="0" style="width:90px"> <span id="discount-label">0%</span> — <span id="discount-amount">0 ₽</span></div>
- <div class="print-discount print-only" id="print-discount">Скидка: 0% — 0 ₽</div>
- <div class="print-final" id="print-final">Итого к оплате: ${money(subtotal)} ₽</div>
- <div class="actions no-print"><button class="btn green" onclick="saveOrder()">Сохранить заказ</button><button class="btn secondary" onclick="window.print()">Печать сметы</button></div>
- </div>`;
- const bind=(id,printId)=>{const el=document.getElementById(id), out=document.getElementById(printId);if(el&&out){const f=()=>out.textContent=el.value||"—";el.addEventListener("input",f);el.addEventListener("change",f);f();}};
- bind("client","print-client");bind("phone","print-phone");bind("address","print-address");
- const dateEl=document.getElementById("date");
- if(dateEl&&!dateEl.value){dateEl.value=savedDate||new Date().toISOString().slice(0,10);}
- bind("date","print-date");
- restoreOrderForm();
- if(dateEl&&!dateEl.value)dateEl.value=new Date().toISOString().slice(0,10);
- const d=(()=>{try{return JSON.parse(localStorage.getItem(userDataKey())||"{}")}catch(e){return {}}})();
- const discountEl=document.getElementById("discount"), inline=document.getElementById("discount-inline");
- const initialDiscount=Number(d.discount||0);
- if(discountEl)discountEl.value=initialDiscount; if(inline)inline.value=initialDiscount;
- const updateDiscount=()=>{const v=Math.min(100,Math.max(0,Number((inline&&inline.value)||(discountEl&&discountEl.value)||0)));if(discountEl)discountEl.value=v;if(inline)inline.value=v;const amount=subtotal*v/100, final=subtotal-amount;document.getElementById("discount-label").textContent=v+"%";document.getElementById("discount-amount").textContent=money(amount)+" ₽";document.getElementById("print-discount").textContent="Скидка: "+v+"% — "+money(amount)+" ₽";document.getElementById("print-final").textContent="Итого к оплате: "+money(final)+" ₽";saveOrderForm();};
- if(discountEl)discountEl.addEventListener("input",()=>{if(inline)inline.value=discountEl.value;updateDiscount()});
- if(inline)inline.addEventListener("input",()=>{if(discountEl)discountEl.value=inline.value;updateDiscount()});
- updateDiscount();
- ["client","phone","address","date","comment","discount"].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener("input",saveOrderForm)});
+ const total=estimate.reduce((s,x)=>s+x.qty*x.price,0);
+ c.innerHTML=`<div class="card"><h3>Информация о заказе</h3><div class="row"><div><label>Заказчик</label><input id="client" placeholder="ФИО заказчика"></div><div><label>Телефон</label><input id="phone" placeholder="Телефон"></div><div><label>Адрес</label><input id="address" placeholder="Адрес"></div><div><label>Дата</label><input id="date" type="date" value="${today()}"></div></div><div style="margin-top:12px"><label>Скидка (%)</label><input id="discount" type="number" min="0" max="100" value="0" oninput="updateOrderTotals()" style="max-width:180px"><div id="orderTotals" style="margin-top:12px"></div></div><div style="margin-top:12px"><label>Комментарий</label><textarea id="comment" placeholder="Комментарий" rows="3"></textarea></div></div>
+ <div class="card" style="margin-top:14px"><h3>Выбранные работы и материалы</h3><table class="table print-table"><thead><tr><th>№</th><th>Позиция</th><th>Ед.</th><th>Кол-во</th><th>Цена</th><th>Сумма</th><th class="no-print"></th></tr></thead><tbody>${estimate.length?estimate.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.name)}</td><td>${esc(x.unit)}</td><td><div class="no-print" style="display:flex;gap:4px;align-items:center"><button class="btn secondary" style="padding:5px 9px" onclick="qtyOrder(${i},${Number(x.qty)-1})">−</button><input style="width:60px" type="number" min="1" value="${x.qty}" onchange="qtyOrder(${i},this.value)"><button class="btn" style="padding:5px 9px" onclick="qtyOrder(${i},${Number(x.qty)+1})">+</button></div><span class="print-only">${x.qty}</span></td><td>${money(x.price)} ₽</td><td>${money(x.qty*x.price)} ₽</td><td class="no-print"><button class="btn danger" style="padding:5px 9px" onclick="del(${i});orders(document.getElementById('content'))">×</button></td></tr>`).join(""):`<tr><td colspan="7" class="empty">Нет выбранных работ. Добавь позиции в «Прайсе».</td></tr>`}</tbody></table><div id="printTotals" class="total"></div><div class="actions no-print" style="margin-top:15px"><button class="btn green" onclick="saveOrder()">Сохранить заказ</button><button class="btn secondary" onclick="window.print()">Печать</button></div></div>`;
+ updateOrderTotals();
 }
-function ordersArchiveKey(){return account?"my_electro_orders_"+account.id:"my_electro_orders_guest"}
-function getOrdersArchive(){try{const a=JSON.parse(localStorage.getItem(ordersArchiveKey())||"[]");return Array.isArray(a)?a:[]}catch(e){return []}}
-function saveOrdersArchive(a){localStorage.setItem(ordersArchiveKey(),JSON.stringify(a))}
-function currentOrderSnapshot(){const d={};["client","phone","address","date","comment","discount"].forEach(id=>{const el=document.getElementById(id);d[id]=el?el.value:""});const discount=Math.min(100,Math.max(0,Number(d.discount)||0));const subtotal=estimate.reduce((sum,x)=>sum+Number(x.qty||0)*Number(x.price||0),0);d.discount=discount;d.subtotal=subtotal;d.discountAmount=Math.round(subtotal*discount/100);d.total=subtotal-d.discountAmount;d.items=JSON.parse(JSON.stringify(estimate));d.savedAt=new Date().toISOString();return d}
-function saveOrder(){saveOrderForm();saveEstimate();const d=currentOrderSnapshot();if(!d.client.trim()){alert("Впиши имя заказчика перед сохранением");return}const a=getOrdersArchive();a.unshift({id:Date.now(),...d});saveOrdersArchive(a);alert("Заказ сохранён в архиве")}
-function formatArchiveDate(v){if(!v)return "—";const p=v.split("-");return p.length===3?p[2]+"."+p[1]+"."+p[0]:v}
-function archive(c){const a=getOrdersArchive();c.innerHTML=`<div class="card"><div class="section-head"><div><h3 style="margin:0">Архив заказов</h3><p class="muted">Имя, телефон, адрес, дата, скидка, работы и итоговая сумма сохранённых заказов.</p></div><button class="btn secondary no-print" onclick="go('Сметы и заказы')">← Новый заказ</button></div><div class="archive-list">${a.length?a.map((o,i)=>`<div class="archive-row"><div><b>${esc(o.client||"Без имени")}</b><div class="archive-small">${formatArchiveDate(o.date)}</div></div><div>${esc(o.phone||"—")}</div><div>${esc(o.address||"—")}</div><div><b>${money(o.total)} ₽</b><div class="archive-small">Скидка ${Number(o.discount||0)}%</div></div><div class="archive-actions no-print"><button class="btn blue" onclick="openArchivedOrder(${i})">Открыть</button><button class="btn danger" onclick="deleteArchivedOrder(${i})">×</button></div></div>`).join(""):`<div class="empty">Архив пока пуст. Сохрани первый заказ из раздела «Сметы и заказы».</div>`}</div></div>`}
-function openArchivedOrder(i){const a=getOrdersArchive(),o=a[i];if(!o)return;estimate=JSON.parse(JSON.stringify(o.items||[]));saveEstimate();go("Сметы и заказы");setTimeout(()=>{["client","phone","address","date","comment","discount"].forEach(id=>{const el=document.getElementById(id);if(el)el.value=o[id]||""});saveOrderForm();render()},0)}
-function deleteArchivedOrder(i){if(!confirm("Удалить этот заказ из архива?"))return;const a=getOrdersArchive();a.splice(i,1);saveOrdersArchive(a);render()}
+function today(){return new Date().toISOString().slice(0,10)}
+function getOrderForm(){return {client:document.getElementById("client")?.value||"",phone:document.getElementById("phone")?.value||"",address:document.getElementById("address")?.value||"",date:document.getElementById("date")?.value||today(),discount:Math.min(100,Math.max(0,Number(document.getElementById("discount")?.value)||0)),comment:document.getElementById("comment")?.value||""}}
+function totals(){const subtotal=estimate.reduce((s,x)=>s+x.qty*x.price,0);const d=Math.min(100,Math.max(0,Number(document.getElementById("discount")?.value)||0));const amount=subtotal*d/100;return {subtotal,discount:d,discountAmount:amount,total:subtotal-amount}}
+function updateOrderTotals(){const t=totals();const html=`<div><b>Сумма работ:</b> ${money(t.subtotal)} ₽</div><div><b>Скидка:</b> ${t.discount}% — ${money(t.discountAmount)} ₽</div><div style="font-size:24px;font-weight:900;margin-top:5px">К оплате: ${money(t.total)} ₽</div>`;const a=document.getElementById("orderTotals"),b=document.getElementById("printTotals");if(a)a.innerHTML=html;if(b)b.innerHTML=html}
+function qtyOrder(i,v){estimate[i].qty=Math.max(1,Number(v)||1);saveEstimate();orders(document.getElementById("content"))}
+function saveOrder(){const f=getOrderForm();const t=totals();const order={id:Date.now(),...f,subtotal:t.subtotal,discountAmount:t.discountAmount,total:t.total,items:JSON.parse(JSON.stringify(estimate))};ordersData.unshift(order);localStorage.setItem(ordersKey,JSON.stringify(ordersData));showToast("Заказ сохранён в архив");}
+function archive(c){c.innerHTML=`<div class="card"><div class="section-head"><div><h3 style="margin:0">🗂️ Архив заказов</h3><div class="muted">Сохранённые заказчики, работы, скидки и суммы остаются в этом браузере.</div></div><button class="btn danger no-print" onclick="clearArchive()">Очистить архив</button></div></div><div style="margin-top:14px">${ordersData.length?ordersData.map((o,i)=>`<div class="card" style="margin-bottom:12px"><div class="section-head"><div><h3 style="margin:0">${esc(o.client||"Без имени")}</h3><div class="muted">${esc(o.date)} • ${esc(o.phone||"Телефон не указан")}</div><div class="muted">${esc(o.address||"Адрес не указан")}</div></div><div style="text-align:right"><div class="total">${money(o.total)} ₽</div><div class="muted">Скидка ${o.discount}% (${money(o.discountAmount)} ₽)</div></div></div><div class="actions no-print" style="margin-top:10px"><button class="btn secondary" onclick="viewOrder(${i})">Открыть</button><button class="btn danger" onclick="deleteOrder(${i})">Удалить</button></div></div>`).join(""):`<div class="empty">Архив пока пуст. Сохрани первый заказ в разделе «Сметы и заказы».</div>`}</div>`}
+function viewOrder(i){const o=ordersData[i];estimate=JSON.parse(JSON.stringify(o.items||[]));saveEstimate();current="Сметы и заказы";render();setTimeout(()=>{document.getElementById("client").value=o.client||"";document.getElementById("phone").value=o.phone||"";document.getElementById("address").value=o.address||"";document.getElementById("date").value=o.date||today();document.getElementById("discount").value=o.discount||0;document.getElementById("comment").value=o.comment||"";updateOrderTotals()},0)}
+function deleteOrder(i){if(!confirm("Удалить этот заказ из архива?"))return;ordersData.splice(i,1);localStorage.setItem(ordersKey,JSON.stringify(ordersData));render()}
+function clearArchive(){if(!confirm("Очистить весь архив заказов?"))return;ordersData=[];localStorage.setItem(ordersKey,"[]");render()}
 function panels(c){c.innerHTML=`<div class="grid">${["24 модуля","36 модулей","54 модуля","72 модуля","96 модулей"].map(x=>`<div class="card"><div class="stat">⚡</div><h3>Щит на ${x}</h3><p class="muted">Место для схемы, состава аппаратов и примечаний.</p><button class="btn secondary" onclick="alert('Раздел щита: ${x}')">Открыть</button></div>`).join("")}</div>`}
 function materials(c){c.innerHTML=`<div class="grid">${["Гильзы ГМЛ","Наконечники НШВИ","Клеммы","DIN-рейка","Гофра","Крепёж","Маркировка","Расходники"].map(x=>`<div class="card"><h3>${x}</h3><p class="muted">Материалы для электромонтажа</p></div>`).join("")}</div>`}
 function checklist(c){let a=["Обесточить линию","Проверить отсутствие напряжения","Проверить сечение кабеля","Проверить PE/N","Проверить затяжку клемм","Проверить УЗО/дифзащиту","Проверить маркировку","Сделать фото готового монтажа"];c.innerHTML=`<div class="card"><h3>Чек-лист перед сдачей работы</h3>${a.map(x=>`<label style="display:block;padding:13px;border-bottom:1px solid #333"><input type="checkbox"> ${x}</label>`).join("")}</div>`}
@@ -277,11 +149,5 @@ function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",
 function attr(s){return esc(s)}
 go("Главная");
 </script>
-<script>
-if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.protocol === 'http:')) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-}
-</script>
 </body>
 </html>
-
